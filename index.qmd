@@ -5,7 +5,7 @@ format:
   html: default
   pdf: default
 execute:
-  echo: true
+  echo: False
   eval: true
 ---
 
@@ -225,23 +225,12 @@ ggplot(importance_cat, aes(x = reorder(Feature, Importance), y = Importance)) +
 
 ## Discussion Questions for Challenge
 
-**Your Task:** Add thoughtful narrative answers to these two questions in the Discussion Questions section of your rendered HTML site.
+**Narrative**
 
-1. **Numerical vs Categorical Encoding:** There are four models above, two in R and two in Python. For each language, the models differ by how zip code is modelled, either as a numerical variable or as a categorical variable. Given what you know about zip codes and real estate prices, how should zip code be modelled, numerically or categorically?
+ 1. 
+  Zip codes are not averaged, added, or used in any arithmetic sequences. They should be modeled categorically since they refer to a town, and not a number of some kind. In the sense of real estate, each zip code should be categorical, which allows them to be intercepts. Zip codes capture areas and represent the housing prices in that location. It will influence price analysis in a categorical way.
 
-2. **R vs Python Implementation Differences:** When modelling zip code as a categorical variable, the output tree and feature importance differs quite significantly between R and Python. Investigate why this is the case. Which language would you say does a better job of modelling zip code as a categorical variable? Why is this the case? Do you see any documentation suggesting the other language does a better job? If so, please provide a quote from the documentation.
-
-**Documentation verification required:** For question 2, you must investigate the official documentation for both `rpart` (R) and `sklearn.tree.DecisionTreeRegressor` (Python) to understand why the two implementations yield vastly different results when handling categorical variables. Your analysis should be grounded in the actual documentation and technical specifications of these libraries, not AI-generated explanations. AI can be helpful in digesting the documentation, but you must verify the information is correct.
-
-- **Clear narrative:** Tell the story of what you discovered about decision tree feature importance
-- **Insightful analysis:** Focus on the most interesting differences between numerical and categorical 
-- **Human insights:** Your interpretation of what the feature importance rankings actually mean (or don't mean)
-- **Documentation-based analysis:** For question 2, ground your analysis in actual library documentation
-
-### Questions to Answer for 75% Grade on Challenge
-
-1. **Numerical vs Categorical Analysis:** Provide a clear, well-reasoned answer to question 1 about how zip codes should be modelled. Your answer should demonstrate understanding of why categorical variables need special treatment in decision trees.
-
-### Questions to Answer for 85% Grade on Challenge
+2. 
+  R has more sensible splits because of packages like randomforest. This helps to pass variables directly in groupings that are produced by the algorithm itself. In contrast, Python uses packages like scikit-learn that requires you to encode categorical variables. If you do not speficfy beforehand, the package assumes all inputs are numeric. The rpart "splits a numeric matrix describing the splits: … the row label is the name of the split variable … For a factor … the index column contains the row number of the csplit matrix.” (Therneau 2025) R give the freedom to the algorithm to group ZIP codes as categorical values based on outcome distribution. Having to do a one-hot encode will create a dilution of feature importance, since it will be spread into many dummy columns.
 
 
