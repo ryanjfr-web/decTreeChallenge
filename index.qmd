@@ -15,7 +15,6 @@ execute:
 
 Decision trees can be helpful when searching for analysis that has interpretability and versitility. However, flaws occur when we mark categorical variables as numbers. Decision trees react as if the sequence of numbers have a meaning, which can jumble the transparency of our analysis. This is why feature importance is established. Feature importance measures the amount that each variable contributes to the improvement of prediction accuracy. This applies for all splits in the tree. This is the path to understanding which variables have the greatest significance as predictors.
 
-::: {.panel-tabset}
 
 ### R
 
@@ -61,8 +60,6 @@ cat("Model built with", sum(tree_model$frame$var == "<leaf>"), "terminal nodes\n
 
 ## Tree Visualization
 
-::: {.panel-tabset}
-
 ### R
 
 ```{r}
@@ -91,8 +88,6 @@ if (require(rpart.plot, quietly = TRUE)) {
 
 
 ## Feature Importance Analysis
-
-::: {.panel-tabset}
 
 ### R
 
@@ -134,8 +129,6 @@ ggplot(importance_df, aes(x = reorder(Feature, Importance), y = Importance)) +
 ```
 
 ### Categorical Encoding Analysis
-
-::: {.panel-tabset}
 
 ### R
 
@@ -182,8 +175,6 @@ if(zipcode_in_tree) {
 
 ### Tree Visualization: Categorical zipCode
 
-::: {.panel-tabset}
-
 ### R
 
 ```{r}
@@ -211,8 +202,6 @@ if (require(rpart.plot, quietly = TRUE)) {
 
 
 ### Feature Importance: Categorical zipCode
-
-::: {.panel-tabset}
 
 ### R
 
@@ -255,30 +244,4 @@ ggplot(importance_cat, aes(x = reorder(Feature, Importance), y = Importance)) +
 
 ### Questions to Answer for 85% Grade on Challenge
 
-2. **R vs Python Implementation Analysis:** Provide a thorough analysis of question 2, including investigation of the official documentation for both `rpart` (R) and `sklearn.tree.DecisionTreeRegressor` (Python). Your analysis should explain the technical differences and provide a reasoned opinion about which implementation handles categorical variables better.
-
-### Questions to Answer for 95% Grade on Challenge
-
-3. **Professional Presentation:** Your discussion answers should be written in a professional, engaging style that would be appropriate for a business audience. Avoid technical jargon and focus on practical implications.  Use Quarto markdown linking to create a link to the discussion section from the top of the page (see https://quarto.org/docs/authoring/cross-references.html#sections).
-
-### Questions to Answer for 100% Grade on Challenge
-
-4. **Documentation Integration:** For question 2, include a specific quote from the official documentation of `sklearn.tree.DecisionTreeRegressor` that supports your analysis. 
-
-
-**75% Grade Requirements:**
-
-- [ ] Clear, well-reasoned answer to question 1 about numerical vs categorical encoding
-
-**85% Grade Requirements:**
-
-- [ ] Thorough analysis of question 2 with investigation of official documentation
-
-**95% Grade Requirements:**
-
-- [ ] Professional presentation style appropriate for business audience with links to the discussion section from the top of the page (see https://quarto.org/docs/authoring/cross-references.html#sections).
-
-**100% Grade Requirements:**
-
-- [ ] Specific quote from official documentation of `sklearn.tree.DecisionTreeRegressor` supporting your analysis
 
